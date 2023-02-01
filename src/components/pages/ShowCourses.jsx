@@ -51,7 +51,7 @@ const ShowCourses = ({loading}) => {
                     gutterBottom
                     sx={{ direction: "ltr" }}
                   >
-                    <EllipsisText text={course.info} length={"80"} />
+                    <EllipsisText text={course.info} length={80} />
                   </Typography>
                 </CardContent>
               </CardActionArea>

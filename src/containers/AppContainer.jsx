@@ -23,7 +23,7 @@ function AppContainer() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme : dark)')
   useEffect(() => {
     setMode(prefersDarkMode ? "dark" : "light");
-  }, []);
+  }, [prefersDarkMode]);
   useEffect(() => {
     if (isMdUp) {
       setDrawerOpen(false);
@@ -32,6 +32,9 @@ function AppContainer() {
 
   const handlePageNumber = (event, newPage) => {
     setPageNumber(newPage);
+  };
+  const handlePageChange= index => {
+    setPageNumber(index);
   };
 
   const handleThemeChange = () => {
@@ -54,7 +57,7 @@ function AppContainer() {
         </SidebarContainer>
         <DrawerActionButton />
         <PagesContainer>
-          <SwipeableViews index={pageNumber} onChangeIndex={handlePageNumber}>
+          <SwipeableViews index={pageNumber} onChangeIndex={handlePageChange}>
             <Page pageNumber={pageNumber} index={0}>
               <Home helmetTitle="وب سایت شخصی مونا رمضانی " />
             </Page>
